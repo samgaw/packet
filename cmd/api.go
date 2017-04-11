@@ -158,15 +158,15 @@ func CreateDevice(projectID, hostname, plan, facility, operatingSystem, ipxe, bi
 	}
 
 	req := packngo.DeviceCreateRequest{
-		HostName:     hostname,
-		Plan:         plan,
-		Facility:     facility,
-		OS:           operatingSystem,
-		IPXEUrl:      ipxe,
-		BillingCycle: billingCycle,
-		ProjectID:    projectID,
-		UserData:     userData,
-		Tags:         tags,
+		HostName:      hostname,
+		Plan:          plan,
+		Facility:      facility,
+		OS:            operatingSystem,
+		IPXEScriptUrl: ipxe,
+		BillingCycle:  billingCycle,
+		ProjectID:     projectID,
+		UserData:      userData,
+		Tags:          tags,
 	}
 
 	d, _, err := client.Devices.Create(&req)
@@ -186,15 +186,15 @@ func CreateDeviceVerbose(projectID, hostname, plan, facility, operatingSystem, i
 	}
 
 	req := packngo.DeviceCreateRequest{
-		HostName:     hostname,
-		Plan:         plan,
-		Facility:     facility,
-		OS:           operatingSystem,
-		IPXEUrl:      ipxe,
-		BillingCycle: billingCycle,
-		ProjectID:    projectID,
-		UserData:     userData,
-		Tags:         tags,
+		HostName:      hostname,
+		Plan:          plan,
+		Facility:      facility,
+		OS:            operatingSystem,
+		IPXEScriptUrl: ipxe,
+		BillingCycle:  billingCycle,
+		ProjectID:     projectID,
+		UserData:      userData,
+		Tags:          tags,
 	}
 
 	d, _, err := client.Devices.Create(&req)
