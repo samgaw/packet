@@ -45,6 +45,7 @@ var createDeviceCmd = &cobra.Command{
 		plan := cmd.Flag("plan").Value.String()
 		facility := cmd.Flag("facility").Value.String()
 		osType := cmd.Flag("os-type").Value.String()
+		ipxe := cmd.Flag("ipxe-url").Value.String()
 		billing := cmd.Flag("billing").Value.String()
 		userDataFile := cmd.Flag("file").Value.String()
 		if userDataFile != "" {
@@ -56,10 +57,10 @@ var createDeviceCmd = &cobra.Command{
 		}
 		// tags := cmd.Flag("tags").Value.String()
 		if silent {
-			err := CreateDevice(projectID, hostname, plan, facility, osType, billing, userData, []string{})
+			err := CreateDevice(projectID, hostname, plan, facility, osType, ipxe, billing, userData, []string{})
 			return err
 		}
-		err := CreateDeviceVerbose(projectID, hostname, plan, facility, osType, billing, userData, []string{})
+		err := CreateDeviceVerbose(projectID, hostname, plan, facility, osType, ipxe, billing, userData, []string{})
 		return err
 	},
 }
@@ -154,6 +155,7 @@ func init() {
 	createDeviceCmd.Flags().String("facility", "", "DC location. Available values are sjc1: Sunnyvale CA, ewr1: Parsippany NJ, ams1: Amsterdam NL")
 	createDeviceCmd.Flags().String("os-type", "centos_7", "Operating system to deploy to the server.")
 	createDeviceCmd.Flags().String("billing", "hourly", "Choose \"hourly\" or \"monthly\" billing.")
+	createDeviceCmd.Flags().String("ipxe-url", "", "URL for iPXE boot (only used if the --os-type=\"custom_ipxe\"")
 	createDeviceCmd.Flags().StringP("file", "f", "", "Read userdata from a file.")
 	createDeviceCmd.Flags().BoolVarP(&silent, "silent", "s", false, "Omit provisioning logs")
 

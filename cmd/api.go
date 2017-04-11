@@ -151,7 +151,7 @@ func ListDevice(deviceID string) error {
 }
 
 // CreateDevice creates a new device
-func CreateDevice(projectID, hostname, plan, facility, operatingSystem, billingCycle, userData string, tags []string) error {
+func CreateDevice(projectID, hostname, plan, facility, operatingSystem, ipxe, billingCycle, userData string, tags []string) error {
 	client, err := NewPacketClient()
 	if err != nil {
 		return err
@@ -162,6 +162,7 @@ func CreateDevice(projectID, hostname, plan, facility, operatingSystem, billingC
 		Plan:         plan,
 		Facility:     facility,
 		OS:           operatingSystem,
+		IPXEUrl:      ipxe,
 		BillingCycle: billingCycle,
 		ProjectID:    projectID,
 		UserData:     userData,
@@ -178,7 +179,7 @@ func CreateDevice(projectID, hostname, plan, facility, operatingSystem, billingC
 }
 
 // CreateDeviceVerbose creates a new device and logs events till the device is provisionned
-func CreateDeviceVerbose(projectID, hostname, plan, facility, operatingSystem, billingCycle, userData string, tags []string) error {
+func CreateDeviceVerbose(projectID, hostname, plan, facility, operatingSystem, ipxe, billingCycle, userData string, tags []string) error {
 	client, err := NewPacketClient()
 	if err != nil {
 		return err
@@ -189,6 +190,7 @@ func CreateDeviceVerbose(projectID, hostname, plan, facility, operatingSystem, b
 		Plan:         plan,
 		Facility:     facility,
 		OS:           operatingSystem,
+		IPXEUrl:      ipxe,
 		BillingCycle: billingCycle,
 		ProjectID:    projectID,
 		UserData:     userData,
