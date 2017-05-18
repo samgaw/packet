@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ebsarr/packet/cmd"
+import "github.com/avsm/packet/cmd"
 
 func main() {
 	cmd.Execute()
